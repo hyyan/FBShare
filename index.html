@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>FB Share</title>
+
+        <!-- Bootstrap -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script>
+            /**
+             * Setup the facebook sdk snippet
+             */
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '121902854903548',
+                    xfbml: true,
+                    version: 'v2.6'
+                });
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </head>
+    <body>
+        <br><br>
+        <div class="container">
+            <div class="row">
+                <h1>Integrating Testing Platform With Facebook Share functionality</h1>
+                <hr>
+                <div style="font-size: 20px;">
+                     <p>
+                        The idea of this demo is to answer simple math question , if 
+                        you answerd the question correctly , you will get a message
+                        says that you have answered correctly and a button which will
+                        allow you to share your result on facebook , if not a 
+                        simple "wrong question" message will be shown with 
+                        "Try Again" button.
+
+                        We use the default facebook share api to controll the 
+                        following elments which will be shared
+                    </p>
+                    <ul>
+                        <li>Title : the post title</li>
+                        <li>Description : the post description</li>
+                        <li>Picture : the post picture , for now it is 
+                            static image to create dynamic images we need
+                            a service like <a href="http://dummyimage.com/" target="_blank"> 
+                                http://dummyimage.com/</a>
+                        </li>
+                        <li>href : the post link , it could be the website url</li>
+                    </ul>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="row">
+                <h3>Answer The Question</h3>
+                <hr>
+                <form class="form-inline" disabled>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="num1" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>+</label>
+                        <input type="number" class="form-control" id="num2" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>=</label>
+                        <input type="number" class="form-control" id="answer" placeholder="answer">
+                    </div>
+                    <button id="answer-button" class="btn btn-default">
+                        Check My Answer
+                    </button>
+                </form>
+            </div>
+            <br><br><br>
+            <div class="row">
+                <div class="jumbotron hidden" id="result">
+                    <h1 id="result-title">Hello, world!</h1>
+                    <p id="result-content"></p>
+                    <button id="result-button" class="btn btn-primary btn-lg">
+                        Result Button
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>s
+    </body>
+</html>
