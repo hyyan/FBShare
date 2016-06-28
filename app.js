@@ -56,7 +56,7 @@ jQuery(function () {
                 content.text('You Have Answered The Question Correctly 100%');
                 button.text('Share the result Now');
                 button.off('click').on('click', function () {
-                    var message = 'You are intelligence , you have solve the \n\
+                    var message = 'You are intelligence , you have solved the \n\
                                    hardest equation in the whole world:' +
                             '         ' +
                             num1 + ' + ' + num2 + ' = ' + answer
